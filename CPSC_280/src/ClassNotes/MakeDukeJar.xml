@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project default= "main">
+	<property name="jar.name"      value="duke.jar" />
+	<property name="folder.source" value="../src" />
+	<property name="folder.class"  value="../bin" />
+	
+	<target name= "main" depends= "cleaning, compiling,jaring">
+	</target>
+	
+	<target name= "cleaning">
+		<delete file="${jar.name}" />
+		<delete dir="${folder.class}" includes ="**/*"/>
+	</target>
+	
+	<target name= "compiling">
+		<javac srcdir = "${folder.source}" destdir = "${folder.class}" />
+	</target>
+	
+	<target name= "jaring">
+		<jar destfile= "${jar.name}">
+			<fileset dir= "${folder.class}">
+				<include name="**/*.class" />
+			</fileset>
+			<fileset dir= "${folder.source}">
+				<include name="**/*.gif" />
+			</fileset>
+			<manifest>
+				<attribute  name= "Main-Class" value= "TumblingDuke" />
+			</manifest>
+		</jar>
+	</target>
+</project>
