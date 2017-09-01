@@ -7,6 +7,7 @@ package BST;
  * @version 03272017
  *
  */
+// testing commits
 public class BST implements BST_ADT {
     private Node root;
 
